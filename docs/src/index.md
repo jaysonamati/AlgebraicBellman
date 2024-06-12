@@ -1,7 +1,7 @@
-# AlgebraicTemplate.jl
+# AlgebraicBellman.jl
 
 ```@meta
-CurrentModule = AlgebraicTemplate
+CurrentModule = AlgebraicBellman
 ```
 
-`AlgebraicTemplate.jl` is a Julia library for...
+`AlgebraicBellman.jl` is a Julia library for solving and specifying Sequential Decision Problems.

@@ -1,7 +1,7 @@
 name = "AlgebraicTemplate"
 uuid = "b66562e1-fa90-4e8b-9505-c909188fab76"
 license = "MIT"
-authors = ["AlgebraicJulia Developer <email@algebraicjulia.org>"]
+authors = ["jaysonamati@gmail.com"]
 version = "0.0.1"
 
 [deps]
