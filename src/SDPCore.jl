@@ -6,6 +6,7 @@ export Policy
 export PolicySeq
 export SDP
 export State
+export Ctrl
 
 export reward
 # Sequential Decision Problmes
@@ -27,7 +28,7 @@ mutable struct State{X}
 end
 
 mutable struct Policy{X, Y}
-  currentState::X
+  currentState::State{X}
   control::Ctrl{Y}
 end
 
@@ -38,7 +39,7 @@ end
 function optimalAction(controls::Vector{Ctrl}, current_state::State)
 end
 
-function nexts(decisions::Integer, current_state::State, applied_action::Ctrl{Integer})
+function nexts(decisions::Integer, current_state::State, applied_action::Ctrl)
   possibleNexts = []
   possibleNexts
 end
@@ -74,11 +75,11 @@ end
 mutable struct SDP{T,N,X,Y,V}
   t::T
   n::N
+  state::Function
   states::Vector{State{X}}
   controls::Vector{Ctrl{Y}}
   nexts::Function
-  policy::Policy{X,Y}
-  val::V
+  policy::Function
   reward::Function
 end
 
