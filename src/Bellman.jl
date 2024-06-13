@@ -49,7 +49,7 @@ function isBellman()
     true
 end
 
-function bi(t::Integer, n::Integer, sdp::SDP)
+function bi(t::Int64, n::Int64, sdp::SDP)
     policySeq = PolicySeq(t,n,[])
     policies_in_seq = []
     for i in n:-1:1

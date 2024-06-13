@@ -52,7 +52,7 @@ GU_BT = Ctrl("b")
 BT_GS = Ctrl("c")
 GS_GS = Ctrl("d")
 
-function generation_state(n::Int64)
+function generation_state(n::Int64) <: Function
     if n == 1
         B
     elseif n == 2
@@ -61,6 +61,7 @@ function generation_state(n::Int64)
         GT
     elseif n == 4
         GS
+    end
 end
 
 function generation_next(state::State{Int64}, action::Ctrl{String})
@@ -81,7 +82,7 @@ function generation_next(state::State{Int64}, action::Ctrl{String})
     end
 end
 
-function generation_policy(state::State{Int64})
+function generation_policy(state::State{Int64}) <: Funciton
 
 end
 
@@ -91,12 +92,20 @@ end
 
 generation_states   = [B, BT, GS, GU]
 generation_controls = [B_B, GU_B, GU_GU, GU_BT, BT_GS, GS_GS]
-generation_policy   = Policy(GU,GU_B)
+# generation_policy   = Policy(GU,GU_B)
 
 
-generation_sdp = SDP(3,3,generation_state,generation_states, generation_controls, generation_next, generation_policy,generation_reward)
+generation_sdp = SDP{Int64, Int64, Int64, String}(
+    3,
+    3,
+    generation_state,
+    generation_states,
+    generation_controls,
+    generation_next,
+    generation_policy,
+    generation_reward)
 
-generation_policy_seq = bi(3,3,generation_sdp)
+generation_policy_seq = bi(3,3, generation_sdp)
 
 
 end

@@ -73,7 +73,7 @@ function reward(current_decision_step::Integer, current_state::State, action_at_
   return action_reward
 end
 
-mutable struct SDP{T,N,X,Y,V}
+mutable struct SDP{T,N,X,Y}
   t::T
   n::N
   state::Function
