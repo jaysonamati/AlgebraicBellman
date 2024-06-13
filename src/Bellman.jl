@@ -38,24 +38,31 @@ function optExt(decisionStep::Integer,ps::PolicySeq, policies::Vector{Policy})
 end
 
 function isOptExt()
-    return false
+    true
 end
 
 function isOptPolSeq()
-    false
+    true
 end
 
 function isBellman()
-    false
+    true
 end
 
 function bi(t::Integer, n::Integer, sdp::SDP)
-    policySeq = []
-    # t = 0
+    policySeq = PolicySeq(t,n,[])
+    policies_in_seq = []
     for i in n:-1:1
-        for j in 1:t
-            #?
+        # Starting from the last state add a policy that maximizes reward
+        policy = sdp.policy()
+        available_actions = policy.actions
+        optimal_action = Ctrl
+        highest_reward = 0
+        for act in enumerate(available_actions)
+            # Assign highest values action to optimal_action
         end
+        # Add optimal policy to the policies of PolicySeq
+        # Move to the "next" state
     end
     return policySeq
 end

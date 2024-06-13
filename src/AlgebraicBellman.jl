@@ -96,6 +96,7 @@ generation_policy   = Policy(GU,GU_B)
 
 generation_sdp = SDP(3,3,generation_state,generation_states, generation_controls, generation_next, generation_policy,generation_reward)
 
+generation_policy_seq = bi(3,3,generation_sdp)
 
 
 end

@@ -47,6 +47,7 @@ end
 mutable struct PolicySeq{T<:Integer,N<:Integer, X, Y}
   decisions::T
   state_steps::N
+  # Maybe we should have a Val for a PolicySeq
   policies::Vector{Policy{X, Y}}
   function PolicySeq{T, N, X, Y}(decisions::T, state_steps::N, policies::Vector{Policy{X, Y}}) where T<:Integer where N<:Integer where X where Y
     new(decisions, state_steps, policies)
